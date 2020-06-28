@@ -78,7 +78,7 @@ router.patch('/users/me',auth, async(req, res)=>{
         return res.status(400).send({error:'Invalid Updates'})
     }
     try{ 
-        updates.forEach((update)=>req.user[update] = req.bod[update])
+        updates.forEach((update)=>req.user[update] = req.body[update])
 
         await req.user.save()
         res.send(req.user)
